@@ -1,0 +1,8 @@
+.content {
+	background-color: cornflowerblue;
+	grid-area: c;
+}
+
+.content img {
+	width: 100%;
+}

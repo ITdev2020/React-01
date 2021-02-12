@@ -1,7 +1,7 @@
 .App-logo {
-	margin-top: 5px;
-	margin-left: 42%;
-	height: 20vmin;
+	padding: 10px;
+	margin-left: 48%;
+	height: 10vmin;
 	pointer-events: none;
 }
 
@@ -30,26 +30,4 @@
 	grid-template-rows: 60px 1fr;
 	grid-template-columns: 2fr 10fr;
 	grid-gap: 10px;
-}
-
-.header {
-	background-color: lightgreen;
-	grid-area: h;
-}
-
-.header img {
-	width: 80px;
-}
-
-.nav {
-	background-color: burlywood;
-	grid-area: n;
-}
-.content {
-	background-color: cornflowerblue;
-	grid-area: c;
-}
-
-.content img {
-	width: 100%;
 }
