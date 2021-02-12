@@ -9,7 +9,7 @@ const Profile = () => {
 			</div>
 			<div>
 				<div>ava + description</div>
-				<MyPosts />
+				<MyPosts propsProperties="The My desk !!!" />
 			</div>
 		</div>
 	);
