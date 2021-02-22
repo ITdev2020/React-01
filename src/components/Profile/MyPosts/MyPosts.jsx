@@ -3,17 +3,30 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-  let posts = [
-    {id: 1, message: 'Hi, how are you?', likesCount: 53},
-    {id: 2, message: 'It\'s my first post', likesCount: 3},
-    {id: 3, message: 'How is life?', likesCount: 6},
-    {id: 4, message: 'Nothing', likesCount: 23},
-    {id: 5, message: 'By', likesCount: 0},
-  ]
 
-let postsElements = posts.map(
+  console.log(props.message)
+
+
+
+
+  // let posts = [
+  //   {id: 1, message: 'Hi, how are you?', likesCount: 53},
+  //   {id: 2, message: 'It\'s my first post', likesCount: 3},
+  //   {id: 3, message: 'How is life?', likesCount: 6},
+  //   {id: 4, message: 'Nothing', likesCount: 23},
+  //   {id: 5, message: 'By', likesCount: 0},
+  // ]
+
+
+  /*
+let postsElements = props.postsArr.map(
+  // p => <Post message={p.message} likesCount={p.likesCount}/>
   p => <Post message={p.message} likesCount={p.likesCount}/>
 )
+*/
+
+
+
 
   return (
     <div className={s.postsBlock}>
@@ -30,7 +43,12 @@ let postsElements = posts.map(
       </div>
       <div className={s.posts}>
 
-        {postsElements}
+        {/*{postsElements}*/}
+
+        {props.postsArr}
+
+        {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>*/}
+
 
 
         {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>*/}
