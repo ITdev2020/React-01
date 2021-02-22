@@ -4,7 +4,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 
 
-  console.log(props.message)
+  // console.log(props.message)
 
 
 
@@ -45,7 +45,7 @@ let postsElements = props.postsArr.map(
 
         {/*{postsElements}*/}
 
-        {props.postsArr}
+        {props.postsElements}
 
         {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>*/}
 
