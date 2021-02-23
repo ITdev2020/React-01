@@ -43,11 +43,11 @@ const Dialogs = (props) => {
     //   m => <Message message={m.message}/>
     // )
 
-  let dialogsElements = props.dialogs.map(
+  let dialogsElements = props.state.dialogs.map(
     d => <DialogItem id={d.id} name={d.name}/>
   )
 
-  let messagesElements = props.messages.map(
+  let messagesElements = props.state.messages.map(
     m => <Message message={m.message}/>
   )
 

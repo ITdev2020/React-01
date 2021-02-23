@@ -22,23 +22,21 @@ function App(props) {
           <Header/>
           <Navbar/>
           <div className='app-wrapper-content'>
-            {/*<Route path='/profile' component={Profile}/>*/}
-            {/*<Route path='/dialogs' component={Dialogs}/>*/}
 
             <Route path='/profile' render={
-              () => <Profile posts={props.posts}/>
+              () => <Profile state={props.state.profilePage}/>
             }/>
 
 
             <Route path='/dialogs' render={
               () => <Dialogs
-                dialogs={props.dialogs}
-                messages={props.messages}
+                state={props.state.dialogsPage}
+                // dialogs={props.state.dialogsPage.dialogs}
+                // messages={props.state.dialogsPage.messages}
               />
             }/>
 
 
-            {/*<Route exact path='/dialogs' component={Dialogs}/>*/}
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
             <Route path='/settings' component={Settings}/>
