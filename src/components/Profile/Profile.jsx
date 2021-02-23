@@ -1,8 +1,6 @@
 import s from './Profile.module.css'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from './MyPosts/MyPosts';
-import Post from "./MyPosts/Post/Post";
-
 const Profile = (props) => {
 
 //
@@ -29,7 +27,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts propsProperties="The My desk !!!" postsElements={props.postsElements}/>
+      <MyPosts propsProperties="The My desk !!!" posts={props.posts}/>
       {/*<MyPosts postsArr={postsElements}/>*/}
     </div>
   );

@@ -11,6 +11,9 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 
 function App(props) {
+
+
+
   return (
     <BrowserRouter>
       <div>
@@ -23,14 +26,14 @@ function App(props) {
             {/*<Route path='/dialogs' component={Dialogs}/>*/}
 
             <Route path='/profile' render={
-              () => <Profile postsElements={props.postsElements}/>
+              () => <Profile posts={props.posts}/>
             }/>
 
 
             <Route path='/dialogs' render={
               () => <Dialogs
-                dialogsElements={props.dialogsElements}
-                messagesElements={props.messagesElements}
+                dialogs={props.dialogs}
+                messages={props.messages}
               />
             }/>
 

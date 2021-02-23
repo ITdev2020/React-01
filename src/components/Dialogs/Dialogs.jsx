@@ -3,7 +3,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 
-
 const Dialogs = (props) => {
 
     // let dialogs = [
@@ -40,15 +39,17 @@ const Dialogs = (props) => {
 ]
 */
 
-
-
     // let messagesElements = messages.map(
     //   m => <Message message={m.message}/>
     // )
 
+  let dialogsElements = props.dialogs.map(
+    d => <DialogItem id={d.id} name={d.name}/>
+  )
 
-
-
+  let messagesElements = props.messages.map(
+    m => <Message message={m.message}/>
+  )
 
 
     return (
@@ -56,9 +57,7 @@ const Dialogs = (props) => {
         <div className={s.dialogsItems}>
 
 
-          {
-            props.dialogsElements
-          }
+          {dialogsElements}
 
 
           {/*<DialogItem id={dialogs[0].id} name={dialogs[0].name}/>*/}
@@ -71,9 +70,7 @@ const Dialogs = (props) => {
         <div className={s.messages}>
 
 
-          {
-            props.messagesElements
-          }
+          {messagesElements}
 
 
           {/*<Message message={messages[0].message}/>*/}

@@ -1,5 +1,6 @@
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import React from "react";
 
 const MyPosts = (props) => {
 
@@ -7,6 +8,10 @@ const MyPosts = (props) => {
   // console.log(props.message)
 
 
+  let postsElements = props.posts.map(
+// p => <Post message={p.message} likesCount={p.likesCount}/>
+    p => <Post message={p.message} likesCount={p.likesCount}/>
+  )
 
 
   // let posts = [
@@ -45,7 +50,7 @@ let postsElements = props.postsArr.map(
 
         {/*{postsElements}*/}
 
-        {props.postsElements}
+        {postsElements}
 
         {/*<Post message={posts[0].message} likesCount={posts[0].likesCount}/>*/}
 
