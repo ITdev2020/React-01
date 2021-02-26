@@ -29,11 +29,7 @@ function App(props) {
 
 
             <Route path='/dialogs' render={
-              () => <Dialogs
-                state={props.state.dialogsPage}
-                // dialogs={props.state.dialogsPage.dialogs}
-                // messages={props.state.dialogsPage.messages}
-              />
+              () => <Dialogs state={props.state.dialogsPage}/>
             }/>
 
 
