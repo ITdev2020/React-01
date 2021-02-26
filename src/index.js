@@ -9,7 +9,6 @@ ReactDOM.render(
   <React.StrictMode>
     <App
       state={state}
-      // posts={state.posts}
       // dialogs={state.dialogs}
       // messages={state.messages}
     />
