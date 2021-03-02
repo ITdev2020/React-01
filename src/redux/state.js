@@ -9,7 +9,8 @@ let state = {
       {id: 3, message: 'How is life?', likesCount: 6},
       {id: 4, message: 'Nothing', likesCount: 23},
       {id: 5, message: 'By', likesCount: 0}
-    ]
+    ],
+    newPostText: 'post by Igor'
   },
 
   dialogsPage: {
@@ -34,13 +35,22 @@ let state = {
   sidebar: {}
 }
 
-export let addPost = (postMessage) => {
+// we can view state value in browser console:
+window.state = state
+
+export let addPost = () => {
+// export let addPost = (postMessage) => {
   let newPost = {
     id: 6,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0
   }
   state.profilePage.posts.push(newPost)
+  state.profilePage.newPostText=''
+  rerenderEntireTree(state)
+}
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText
   rerenderEntireTree(state)
 }
 
