@@ -1,6 +1,6 @@
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -27,7 +27,10 @@ let rerenderEntireTree = (state) => {
 
 // API - application program interface
 rerenderEntireTree(store.getState())
-store.subscribe(rerenderEntireTree)
+store.subscribe( ()=>{
+  let state = store.getState();
+  rerenderEntireTree(state);
+})
 
 
 
