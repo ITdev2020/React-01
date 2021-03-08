@@ -7,23 +7,23 @@ import App from "./App";
 import {Provider} from "react-redux";
 
 
-let rerenderEntireTree = (state) => {
+// let rerenderEntireTree = (state) => {
 
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
 
         <Provider store={store}>
-        {/*<StoreContext.Provider value={store}>*/}
+          {/*<StoreContext.Provider value={store}>*/}
 
-        <App />
+          <App/>
 
-        {/*<App*/}
-        {/*  state={state}*/}
-        {/*  // .bind - bind to object owner 'store'. Later .this - have owner 'store'*/}
-        {/*  dispatch={store.dispatch.bind(store)}*/}
-        {/*  store={store}*/}
-        {/*/>*/}
+          {/*<App*/}
+          {/*  state={state}*/}
+          {/*  // .bind - bind to object owner 'store'. Later .this - have owner 'store'*/}
+          {/*  dispatch={store.dispatch.bind(store)}*/}
+          {/*  store={store}*/}
+          {/*/>*/}
 
         </Provider>
 
@@ -32,16 +32,17 @@ let rerenderEntireTree = (state) => {
     document.getElementById('root')
   );
 
-}
+// }
 
 
 // API - application program interface
-rerenderEntireTree(store.getState())
-store.subscribe( ()=>{
-  let state = store.getState();
-  rerenderEntireTree(state);
-})
+// rerenderEntireTree(store.getState())
 
+
+// store.subscribe(() => {
+//   let state = store.getState();
+//   rerenderEntireTree(state);
+// })
 
 
 // If you want to start measuring performance in your app, pass a function
@@ -49,4 +50,4 @@ store.subscribe( ()=>{
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-export default rerenderEntireTree;
+// export default rerenderEntireTree;
