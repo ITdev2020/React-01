@@ -20,14 +20,16 @@ const App = (props) => {
         <div className='app-wrapper-content'>
 
           <Route path='/profile' render={
-            () => <Profile store={props.store}
+            () => <Profile
+            // () => <Profile store={props.store}
               // profilePage={props.state.profilePage}
               // dispatch={props.dispatch}
             />
           }/>
 
           <Route path='/dialogs' render={
-            () => <DialogsContainer store={props.store}/>
+            () => <DialogsContainer />
+            // () => <DialogsContainer store={props.store}/>
           }/>
 
           <Route path='/news' component={News}/>
