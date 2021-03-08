@@ -21,17 +21,35 @@ let initialState = {
 }
 
 // if state not defined (on start), then state = initialState.
-const dialogsReducer = (state=initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
+
+  // '...state' - already have 'messages:', but this only link (not copy).
+  // we write second line 'messages:', and this line last in object, then this line reWrite
+  // link to 'messages:' from first line, with copy of object 'messages:'.
+
+  // let stateCopy = {
+  //   ...state,
+  // messages: [...state.messages]
+  // }
+
 
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY:
-      state.newMessageBody = action.body
-      return state;
+      return {
+        ...state,
+        newMessageBody: action.body
+      }
+
     case SEND_MESSAGE:
       let body = state.newMessageBody
-      state.newMessageBody = ''
-      state.messages.push({id: 6, message: body})
-      return state;
+      return {
+        ...state,
+        newMessageBody: '',
+        messages: [...state.messages, {id: 6, message: body}]
+      }
+    // stateCopy.newMessageBody = ''
+    // stateCopy.messages.push({id: 6, message: body})
+
     default:
       return state;
   }
@@ -42,7 +60,6 @@ const dialogsReducer = (state=initialState, action) => {
 export const sendMessageCreator = () => ({type: SEND_MESSAGE})
 export const updateNewMessageBodyCreator = (body) =>
   ({type: UPDATE_NEW_MESSAGE_BODY, body: body})
-
 
 
 export default dialogsReducer;

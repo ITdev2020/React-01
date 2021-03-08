@@ -8,12 +8,12 @@ const Dialogs = (props) => {
   let state = props.dialogsPage
 
 
-
+  // ' key={d.id} ' - React requirements that child must have a unique key.
   let dialogsElements = state.dialogs.map
-  (d => <DialogItem id={d.id} name={d.name}/>)
+  (d => <DialogItem id={d.id} key={d.id} name={d.name}/>)
 
   let messagesElements = state.messages.map
-  (m => <Message message={m.message}/>)
+  (m => <Message message={m.message} key={m.id} />)
 
   let newMessageBody = state.newMessageBody
 
