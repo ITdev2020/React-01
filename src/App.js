@@ -1,3 +1,4 @@
+// import React from "react";
 import logo from './logo_igr.svg';
 import './App.css';
 import Header from './components/Header/Header';
@@ -8,6 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Route} from 'react-router-dom';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
 
@@ -18,19 +20,15 @@ const App = (props) => {
         <Header/>
         <Navbar/>
         <div className='app-wrapper-content'>
+          {/*<Route - check url 'path', if the same, than redraw (render) dest. component (<Profile/>)*/}
+          <Route path='/profile'
+                 render={() => <Profile/>}/>
 
-          <Route path='/profile' render={
-            () => <Profile
-            // () => <Profile store={props.store}
-              // profilePage={props.state.profilePage}
-              // dispatch={props.dispatch}
-            />
-          }/>
+          <Route path='/dialogs'
+                 render={() => <DialogsContainer/>}/>
 
-          <Route path='/dialogs' render={
-            () => <DialogsContainer />
-            // () => <DialogsContainer store={props.store}/>
-          }/>
+          <Route path='/users'
+                 render={() => <UsersContainer/>}/>
 
           <Route path='/news' component={News}/>
           <Route path='/music' component={Music}/>
