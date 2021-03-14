@@ -1,22 +1,21 @@
 import styles from './users.module.css'
 import axios from "axios";
 import userPhoto from '../../assets/images/user.png'
+import * as React from "react";
 
-let Users = (props) => {
-  // function getUsers - don't make 'side effect' to component, because invoke from button 'onClick' event.
-  let getUsers = () => {
-    if (props.users.length === 0) {
-      axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-        props.setUsers(response.data.items)
-      })
-    }
+class Users extends React.Component {
+
+  constructor(props) {
+    super(props);
+    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+      this.props.setUsers(response.data.items)
+    })
   }
 
-  return <div>
-    {/* if function call from press button (onClick), then component don't have side effect. */}
-    <button onClick={getUsers}>Get Users</button>
-    {
-      props.users.map(u => <div key={u.id}>
+  render() {
+    return <div>
+      {
+        this.props.users.map(u => <div key={u.id}>
 
         <span>
           <div>
@@ -26,16 +25,16 @@ let Users = (props) => {
             {/* ternary operator */}
             {u.followed
               ? <button onClick={() => {
-                props.unfollow(u.id)
+                this.props.unfollow(u.id)
               }}>Unfollow</button>
               : <button onClick={() => {
-                props.follow(u.id)
+                this.props.follow(u.id)
               }}>Follow</button>
             }
           </div>
         </span>
 
-        <span>
+          <span>
           <span>
             <div>{u.name}</div>
             <div>{u.status}</div>
@@ -46,9 +45,10 @@ let Users = (props) => {
           </span>
         </span>
 
-      </div>)
-    }
-  </div>;
+        </div>)
+      }
+    </div>;
+  }
 }
 
 export default Users;
