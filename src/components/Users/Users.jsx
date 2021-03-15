@@ -5,9 +5,13 @@ import * as React from "react";
 
 class Users extends React.Component {
 
-  constructor(props) {
-    super(props);
-    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+  // - if constructor have only one method 'super', then we not need write constructor.
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  componentDidMount() {
+    axios.get('https://social-network.samuraijs.com/api/1.0/users?page=2').then(response => {
       this.props.setUsers(response.data.items)
     })
   }
