@@ -1,3 +1,7 @@
+body {
+	width: 800px;
+}
+
 .App-logo {
 	padding: 10px;
 	margin-left: 48%;
@@ -23,7 +27,8 @@
 .app-wrapper {
 	margin: 0 auto;
 	display: grid;
-	width: 1200px;
+	width: 800px;
+	/*width: 1200px;*/
 	grid-template-areas:
 		'h h'
 		'n c';
@@ -33,6 +38,8 @@
 }
 
 .app-wrapper-content {
+	/*width: 800px;*/
+	word-break: break-word;
 	grid-area: c;
 	background-color: cornflowerblue;
 }

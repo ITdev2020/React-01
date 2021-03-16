@@ -1,9 +1,9 @@
 [comment]: <> (# Getting Started with Create React App)
 
-### I am codding this project from video online lessons.
+### I am codding this project from video online lessons
 [React JS - путь самурая 1.0](https://youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8)
 
-For study React JavaScript library [React](https://reactjs.org/)
+for study React JavaScript library [React](https://reactjs.org/).
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
