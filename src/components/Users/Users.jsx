@@ -23,7 +23,7 @@ let Users = (props) => {
     </div>
     {
       props.users.map(u => <div key={u.id}>
-
+        {console.log(u)}
         <span>
           <div>
             <NavLink to={'/profile/' + u.id}>
@@ -45,8 +45,9 @@ let Users = (props) => {
 
         <span>
           <span>
-            <div>{u.name}</div>
-            <div>{u.status}</div>
+            <div>userId: {u.id}</div>
+            <div>name: {u.name}</div>
+            <div>status: {u.status}</div>
           </span>
           <span>
             <div>{'u.location.country'}</div>

@@ -21,7 +21,10 @@ const App = (props) => {
         <Navbar/>
         <div className='app-wrapper-content'>
           {/*<Route - check url 'path', if the same, than redraw (render) dest. component (<Profile/>)*/}
-          <Route path='/profile'
+
+          {/*<Route path='/profile/:userId'*/}
+          {/* question mark after parameter - that this parameter is not important. */}
+          <Route path='/profile/:userId?'
                  render={() => <ProfileContainer/>}/>
 
           <Route path='/dialogs'
