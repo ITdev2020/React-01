@@ -75,16 +75,16 @@ const usersReducer = (state = initialState, action) => {
 }
 
 //ActionCreator - AC
-export const followAC = (userId) => ({type: FOLLOW, userId})
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unfollow = (userId) => ({type: UNFOLLOW, userId})
 // users - we give, maybe from server, later. And fill our state.
-export const setUsersAC = (users) => ({type: SET_USERS, users})
+export const setUsers = (users) => ({type: SET_USERS, users})
 //-if we create object and properties name is same this properties variable name (currentPage: currentPage),
 //    we do not need write properties name.
 // export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setUsersTotalCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 
 export default usersReducer;
