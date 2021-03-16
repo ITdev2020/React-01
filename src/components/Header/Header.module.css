@@ -9,8 +9,9 @@
 
 .loginBlock {
 	float: right;
-}
-
-.loginBlock a {
 	color: white;
 }
+
+/*.loginBlock a {*/
+/*	color: white;*/
+/*}*/
