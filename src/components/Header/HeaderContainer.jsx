@@ -7,10 +7,11 @@ import {setAuthUserData} from "../../redux/auth-reducer";
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`)
     // - because crosdomen query (localhost: => samuraijs.api), we need send cookie with query
     //      we add second parameter 'withCredentials'.
-    axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
+    axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`
+      // , {withCredentials: true}
+      )
       .then(response => {
         // we use 'debugger' to see which data we get with response.
         // debugger
