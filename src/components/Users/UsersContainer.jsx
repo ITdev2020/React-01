@@ -106,6 +106,8 @@ let mapDispatchToProps = (dispatch) => {
 }
  */
 
+
+// connect (mapStateToProps, mapDispatchToProps) (UsersContainer)
 export default connect(mapStateToProps, {
   follow,
   unfollow,
