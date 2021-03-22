@@ -1,7 +1,7 @@
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import {Redirect} from 'react-router-dom';
 
 const Dialogs = (props) => {
 
@@ -29,6 +29,13 @@ const Dialogs = (props) => {
     let body = e.target.value
     props.updateNewMessageBody(body)
   }
+
+  // if user is not authorized, then redirect to login page:
+  // alert(props.isAuth);
+  // if (props.isAuth === false) return <Redirect to='/login'/>;
+
+  // if we need comparing boolean with boolean value, then can write short:
+  // if (!props.isAuth) return <Redirect to='/login'/>;
 
   return (
     <div className={s.dialogs}>
