@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 import {withRouter} from "react-router";
 import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
 
@@ -16,24 +17,21 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-    // if user is not authorized, then redirect to login page:
-    // alert(this.props.isAuth);
-    // if (this.props.isAuth === false) return <Redirect to='/login'/>;
-
-    // if we need comparing boolean with boolean value, then can write short:
-    // if (!this.props.isAuth) return <Redirect to='/login'/>;
-
     return (
       <Profile {...this.props} profile={this.props.profile}/>
     )
   };
 };
+
+
+// 'withAuthRedirect' - HOC
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 // if arrow function return object '{}', we must wrap curly brackets in round brackets:
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  isAuth: state.auth.isAuth
+  profile: state.profilePage.profile
 })
 
-let WithUrlDataContainerComponent = withRouter(ProfileContainer);
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
 
 export default connect(mapStateToProps, {getUserProfile})(WithUrlDataContainerComponent);

@@ -3,13 +3,13 @@ import {
 } from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import * as React from "react";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 let mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
-    // is user authorized?
-    isAuth: state.auth.isAuth
   }
 }
 
@@ -26,8 +26,12 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 
+// 'withAuthRedirect' - HOC
+let AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+
 // connect () () - second call function, which return for us fast call. Not is twice call function 'connect'.
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
 
 
 export default DialogsContainer;
