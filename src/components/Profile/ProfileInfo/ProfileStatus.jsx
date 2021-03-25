@@ -22,9 +22,10 @@ class ProfileStatus extends React.Component {
    */
 
 
-  activateEditMode() {
+  activateEditMode = () => {
     // alert('editMode');
         // console.log(`"editMode before-"${this.state.editMode}`);
+        console.log("this-", this);
     //'setState' - asynchronous - execute after finish this method:
     this.setState({
       editMode: true
@@ -52,7 +53,7 @@ class ProfileStatus extends React.Component {
           <div>
             {/*<span onDoubleClick={ ()=> { alert(`"editMode"+ ${this.state.editMode}`) } }>{this.props.status}</span>*/}
             {/*<span onDoubleClick={ this.activateEditMode }>{this.props.status}</span>*/}
-            <span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+            <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
           </div>
         }
 
