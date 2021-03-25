@@ -6,11 +6,11 @@ import s from './ProfileInfo.module.css';
 // with 'class' React in memory create object, which can have local state.
 // other side 'function' - not create object, and can't have local state.
 class ProfileStatus extends React.Component {
+
   // local state
   state = {
     editMode: false,
-    //  for example:
-    title: 'This is title'
+    status: this.props.status
   }
 
   /*
@@ -25,7 +25,6 @@ class ProfileStatus extends React.Component {
   activateEditMode = () => {
     // alert('editMode');
         // console.log(`"editMode before-"${this.state.editMode}`);
-        console.log("this-", this);
     //'setState' - asynchronous - execute after finish this method:
     this.setState({
       editMode: true
@@ -39,11 +38,19 @@ class ProfileStatus extends React.Component {
      */
   }
 
-  deactivateEditMode() {
+  deactivateEditMode = () => {
     this.setState({
       editMode: false
     })
+    this.props.updateStatus(this.state.status);
   }
+
+  onStatusChange = (e) => {
+      this.setState({
+        status: e.currentTarget.value
+      })
+  }
+
 
   render() {
         // console.log(`"editMode inside render-"${this.state.editMode}`);
@@ -53,13 +60,13 @@ class ProfileStatus extends React.Component {
           <div>
             {/*<span onDoubleClick={ ()=> { alert(`"editMode"+ ${this.state.editMode}`) } }>{this.props.status}</span>*/}
             {/*<span onDoubleClick={ this.activateEditMode }>{this.props.status}</span>*/}
-            <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+            <span onDoubleClick={this.activateEditMode}>{this.props.status || '-------'}</span>
           </div>
         }
 
         {this.state.editMode &&
           <div>
-            <input autoFocus={true} onBlur={ this.deactivateEditMode.bind(this) } value={this.props.status}/>
+            <input onChange={this.onStatusChange} autoFocus={true} onBlur={ this.deactivateEditMode } value={this.state.status}/>
           </div>
         }
       </div>

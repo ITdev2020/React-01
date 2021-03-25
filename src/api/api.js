@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// - because crossdomain query (localhost: => samuraijs.api), we need send cookie with query.
+// - because crossdomain query (localhost => samuraijs.api), we need send cookie with query.
 //      We add second parameter 'withCredentials'.
 const instance = axios.create({
   withCredentials: true,
@@ -29,7 +29,21 @@ export const usersAPI = {
   },
 
   getProfile(userId) {
+    console.warn('Obsolete method. Please use "profileAPI" object.')
+    // return instance.get(`profile/` + userId);
+    return profileAPI.getProfile(userId);
+  }
+}
+
+export const profileAPI = {
+  getProfile(userId) {
     return instance.get(`profile/` + userId);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/` + userId);
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status/`, {status: status});
   }
 }
 
