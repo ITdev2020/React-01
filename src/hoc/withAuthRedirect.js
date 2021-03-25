@@ -18,7 +18,7 @@ export const withAuthRedirect = (Component) => {
   // if (this.props.isAuth === false) return <Redirect to='/login'/>;
 
   // if we need comparing boolean with boolean value, then can write short:
-  if (!this.props.isAuth) return <Redirect to='/login'/>;
+      if (!this.props.isAuth) return <Redirect to='/login'/>;
   return <Component {...this.props}/>
     }
   }
