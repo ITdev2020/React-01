@@ -25,7 +25,7 @@ class ProfileStatus extends React.Component {
   activateEditMode = () => {
     // alert('editMode');
         // console.log(`"editMode before-"${this.state.editMode}`);
-    //'setState' - asynchronous - execute after finish this method:
+    //'setState' - asynchronous - execute after React get "setState" from all component in project:
     this.setState({
       editMode: true
     })
@@ -51,8 +51,24 @@ class ProfileStatus extends React.Component {
       })
   }
 
+  /*
+componentDidUpdate(prevProps, prevState) {
+    let a = this.state
+    let b = this.props
+    console.log('componentDidUpdate')
+}
+   */
+
+componentDidUpdate(prevProps, prevState) {
+ if (prevProps.status !== this.props.status)
+  this.setState({
+    status: this.props.status
+  })
+  console.log('componentDidUpdate')
+}
 
   render() {
+    console.log('render')
         // console.log(`"editMode inside render-"${this.state.editMode}`);
     return (
       <div>
