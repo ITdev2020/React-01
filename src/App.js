@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import logo from './logo_igr.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';

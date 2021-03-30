@@ -1,3 +1,4 @@
+import React from "react";
 import preloader from '../../../assets/images/icon-ajax-loading-spinner.svg';
 
 let Preloader = (props) => {
