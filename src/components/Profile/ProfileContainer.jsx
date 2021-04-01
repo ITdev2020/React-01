@@ -13,7 +13,8 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       // userId = 2;
       // userId = 15261;
-      userId = 15806;
+      // userId = 15806;
+      userId = this.props.authorizedUserId;
     }
     this.props.getUserProfile(userId);
     // setTimeout(()=>{
@@ -35,7 +36,9 @@ class ProfileContainer extends React.Component {
 // if arrow function return object '{}', we must wrap curly brackets in round brackets:
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  authorizedUserId: state.auth.userId,
+  isAuth: state.auth.isAuth
 })
 
 export default compose(
