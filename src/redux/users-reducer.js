@@ -76,7 +76,7 @@ const usersReducer = (state = initialState, action) => {
           :
           // if 'followingInProgress: action.isFetching' - false:
           // destructuring not need, because 'filter' is making new array.
-          state.followingInProgress.filter(id => id != action.userId)
+          state.followingInProgress.filter(id => id !== action.userId)
       }
 
     default:

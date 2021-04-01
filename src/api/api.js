@@ -3,7 +3,7 @@ import axios from "axios";
 // - because crossdomain query (localhost => samuraijs.api), we need send cookie with query.
 //      We add second parameter 'withCredentials'.
 const instance = axios.create({
-  // withCredentials: true,
+  withCredentials: true,
   baseURL: 'https://social-network.samuraijs.com/api/1.0/',
   headers: {
     'API-KEY': '9ba50d04-a62e-4b79-81da-db22d5a24da9'
@@ -49,7 +49,13 @@ export const profileAPI = {
 
 export const authAPI = {
   me() {
-    return instance.get(`auth/me`)
+    return instance.get(`auth/me`);
+  },
+  login(email, password, rememberMe = false) {
+    return instance.post(`auth/login`, {email, password, rememberMe});
+  },
+  logout() {
+    return instance.delete(`auth/login`);
   }
 }
 

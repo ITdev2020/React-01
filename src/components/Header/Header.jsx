@@ -9,7 +9,7 @@ const Header = (props) => {
 			<img src="https://www.logodesign.net/logo/line-art-triangle-forming-letter-a-shape-5087ld.png"></img>
 
 			<div className={s.loginBlock}>
-				{ props.isAuth ? props.login
+				{ props.isAuth ? <div> {props.login} - <button onClick={props.logout}>Log out</button> </div>
 				: <NavLink to={'/login'}>Login</NavLink> }
 			</div>
 		</header>
