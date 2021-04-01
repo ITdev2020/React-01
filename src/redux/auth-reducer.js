@@ -33,7 +33,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ( {
 
 //thunkCreator
 export const getAuthUserData = () => (dispatch) => {
-  authAPI.me()
+  return authAPI.me()
     .then(response => {
       if (response.data.resultCode === 0) {
         //  we already login in.

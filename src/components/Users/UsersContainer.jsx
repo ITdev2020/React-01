@@ -1,10 +1,10 @@
+import * as React from 'react';
 import {
   follow,
   setCurrentPage,
   unfollow, toggleFollowingProgress, getUsers
 } from '../../redux/users-reducer';
 import {connect} from 'react-redux';
-import * as React from 'react';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -78,7 +78,6 @@ let mapStateToProps = (state) => {
 // compose order is not important
 export default compose(
   // withLanguage,    // - for example
-  withAuthRedirect,
   connect(mapStateToProps, {
     follow,
     unfollow,
@@ -87,18 +86,3 @@ export default compose(
     getUsers
   })
 )(UsersContainer)
-
-
-
-/*
-let withRedirect = withAuthRedirect(UsersContainer)
-
-// connect (mapStateToProps, mapDispatchToProps) (UsersContainer)
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsers
-})(withRedirect);
- */
