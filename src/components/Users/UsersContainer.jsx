@@ -2,13 +2,20 @@ import * as React from 'react';
 import {
   follow,
   setCurrentPage,
-  unfollow, toggleFollowingProgress, getUsers
+  unfollow, toggleFollowingProgress, requestUsers
 } from '../../redux/users-reducer';
 import {connect} from 'react-redux';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getTotalUsersCount, getUsers
+} from "../../redux/users-selctors";
 
 class UsersContainer extends React.Component {
 
@@ -25,7 +32,7 @@ class UsersContainer extends React.Component {
     // this.props.toggleIsFetching(true)
     //
     // // axios - request, from api.js
-    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+    // usersAPI.requestUsers(this.props.currentPage, this.props.pageSize).then(data => {
     //   this.props.toggleIsFetching(false)
     //   this.props.setUsers(data.items);
     //   this.props.setTotalUsersCount(data.totalCount);
@@ -39,7 +46,7 @@ class UsersContainer extends React.Component {
     // this.props.toggleIsFetching(true)
     //
     // // axios - request, from api.js
-    // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+    // usersAPI.requestUsers(pageNumber, this.props.pageSize).then(data => {
     //   this.props.toggleIsFetching(false)
     //   this.props.setUsers(data.items);
     // })
@@ -62,6 +69,7 @@ class UsersContainer extends React.Component {
   }
 }
 
+/*
 let mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
@@ -70,6 +78,19 @@ let mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
     followingInProgress: state.usersPage.followingInProgress
+  }
+}
+ */
+
+
+let mapStateToProps = (state) => {
+  return {
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state)
   }
 }
 
@@ -83,6 +104,6 @@ export default compose(
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
-    getUsers
+    getUsers: requestUsers
   })
 )(UsersContainer)
