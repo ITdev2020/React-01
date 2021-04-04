@@ -1,9 +1,21 @@
+import {createSelector} from "reselect";
+
+
+// getUsers, primitiveSelector => getUsersSelector   or   getUsersSuper
 // selector - function which get all state, and return only what we need from state in our case.
-export const getUsers = (state) => {
-  // return state.usersPage.users;
-  // for example. Create new array. If we have new array(or object) - then redraw presentation component.
-  return state.usersPage.users.filter(u => true);
+const getUsersSelector = (state) => {
+  return state.usersPage.users;
 }
+
+// 'users' - 'createSelector' dependencies.
+export const getUsers = createSelector(getUsersSelector,
+  (users) => {
+  // selectors logic, not selector. Selector is 'getUsersSuper'.
+  // getUsers().filter(u => true);
+  return users.filter(u => true);
+})
+
+
 
 export const getPageSize = (state) => {
   return state.usersPage.pageSize;
