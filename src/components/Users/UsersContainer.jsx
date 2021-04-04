@@ -53,6 +53,7 @@ class UsersContainer extends React.Component {
   }
 
   render() {
+    console.log('USERS RENDER')
     return <>
       {this.props.isFetching ? <Preloader/> : null}
 
@@ -84,7 +85,10 @@ let mapStateToProps = (state) => {
 
 
 let mapStateToProps = (state) => {
+  console.log('mapStateToProps USERS')
   return {
+    // use Selectors
+    // selector - function which get all state, and return only what we need from state in our case.
     users: getUsers(state),
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),

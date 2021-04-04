@@ -16,13 +16,15 @@ let initialState = {
   currentPage: 1,
   isFetching: true,
   // followingInProgress: [15849, 15848]
-  followingInProgress: []
+  followingInProgress: [],
+  fake: 10
 }
 
 // if state not defined (on start), then state = initialState.
 const usersReducer = (state = initialState, action) => {
 
   switch (action.type) {
+    case 'FAKE': return {...state, fake: state.fake + 1}
     case FOLLOW:
       return {
         ...state,

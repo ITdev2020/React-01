@@ -29,7 +29,7 @@ export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 export const initializeApp = () => (dispatch) => {
   // dispatch - is asynchronous
   let promise = dispatch(getAuthUserData());
-  debugger
+  // debugger
   // dispatch(somethingelse());
   // dispatch(somethingelse());
 
