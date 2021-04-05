@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import s from './ProfileInfo.module.css';
 
 
+// hook - do not use hook in conditional, loops, etc.
 const ProfileStatusWithHooks = (props) => {
   // 'useState' - hook - return array with two elements.
           // let stateWithSetState = useState(true);
@@ -12,6 +13,16 @@ const ProfileStatusWithHooks = (props) => {
   // we use destructuring assignment.
   let [editMode, setEditMode] = useState(false);
   let [status, setStatus] = useState(props.status);
+
+  // 'useEffect' - runs after a component render.
+  useEffect( ()=>{
+    setStatus(props.status)
+  // 'useEffect' - runs only on componentMount, because
+  // [] - do not have dependencies. But we must use anyone dependencies.
+  // }, [] )
+  }, [props.status] )
+  // 'useEffect' - something same as a state synchronization.
+  // by [props.status] - in our case.
 
   const activateEditMode = () => {
     setEditMode(true)
