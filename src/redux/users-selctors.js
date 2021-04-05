@@ -1,17 +1,17 @@
 import {createSelector} from "reselect";
 
 
-// getUsers, primitiveSelector => getUsersSelector   or   getUsersSuper
-// selector - function which get all state, and return only what we need from state in our case.
+// getUsersSelector, primitiveSelector => getUsers
+// selector - function which get all state,
+// and return only what we need from state in our case (primitiveSelector).
 const getUsersSelector = (state) => {
   return state.usersPage.users;
 }
 
-// 'users' - 'createSelector' dependencies.
+// 'users' - dependencies.
 export const getUsers = createSelector(getUsersSelector,
   (users) => {
-  // selectors logic, not selector. Selector is 'getUsersSuper'.
-  // getUsers().filter(u => true);
+  // selectors logic, not selector. Selector is 'getUsers'.
   return users.filter(u => true);
 })
 
@@ -38,7 +38,7 @@ export const getFollowingInProgress = (state) => {
 }
 
 
-// for example:
+// for example (difficult selector):
 export const countSomethingDifficult = (state) => {
   // debugger ...maybe
   // for... math... big arrays etc.

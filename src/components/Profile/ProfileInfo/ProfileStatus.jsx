@@ -1,6 +1,5 @@
 import * as React from "react";
 import s from './ProfileInfo.module.css';
-// import Preloader from "../../common/Preloader/Preloader";
 
 
 // with 'class' React in memory create object, which can have local state.
@@ -82,7 +81,10 @@ componentDidUpdate(prevProps, prevState) {
 
         {this.state.editMode &&
           <div>
-            <input onChange={this.onStatusChange} autoFocus={true} onBlur={ this.deactivateEditMode } value={this.state.status}/>
+            <input onChange={this.onStatusChange}
+                   autoFocus={true}
+                   onBlur={ this.deactivateEditMode.bind(this) }
+                   value={this.state.status}/>
           </div>
         }
       </div>
